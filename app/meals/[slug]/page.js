@@ -3,26 +3,28 @@ import { notFound } from "next/navigation";
 import { getMealDetails } from "../../../utils/meals";
 
 export async function generateMetadata({ params }) {
-
   const { slug } = await params;
-  const meal = await getMealDetails(slug);
+  if (slug) {
+    const meal = await getMealDetails(slug);
 
-  return {
-    title: meal.title,
-    description: meal.summary,
-  };
+    return {
+      title: meal.title,
+      description: meal.summary,
+    };
+  }
 }
 
 export default async function MealDetailsPage({ params }) {
-  
-
   const { slug } = await params;
-  
+
+  if(slug){
+
   const meal = await getMealDetails(slug);
 
   if (!meal) {
     notFound();
   }
+}
 
   meal.instructions = meal?.instructions?.replace(/\n/g, "<br />");
 
