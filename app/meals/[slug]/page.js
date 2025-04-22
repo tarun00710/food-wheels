@@ -47,9 +47,9 @@ export default async function MealDetailsPage({ params }) {
           <p className="text-lg mt-4">{meal.summary}</p>
         </div>
       </header>
-      <main>
+      <main className="py-3">
         <p
-          className="text-lg leading-relaxed bg-[#6e6464] text-[#13120f] rounded-lg shadow-lg px-8 py-6 max-w-3xl mx-auto mt-8 animate-fade-slide-bottom"
+          className="text-lg leading-relaxed bg-[#6e6464] text-[#13120f] rounded-lg shadow-lg px-8 py-6 max-w-3xl mx-auto mt-8 mb-3 animate-fade-slide-bottom"
           dangerouslySetInnerHTML={{
             __html: meal.instructions,
           }}
