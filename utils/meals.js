@@ -11,8 +11,17 @@ export async function getMeals() {
   return db.prepare("SELECT * FROM  meals").all();
 }
 export async function getMealDetails(slug) {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-  return db.prepare("SELECT * FROM  meals WHERE slug = ?").get(slug);
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const meal = db.prepare("SELECT * FROM meals WHERE slug = ?").get(slug);
+    if (!meal) {
+      throw new Error(`Meal with slug ${slug} not found`);
+    }
+    return meal;
+  } catch (error) {
+    console.error("Error fetching meal details:", error);
+    throw error;
+  }
 }
 
 export async function saveMeal(meal) {
