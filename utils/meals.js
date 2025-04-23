@@ -4,7 +4,8 @@ import xss from "xss";
 import fs from "node:fs";
 import { error } from "node:console";
 
-const db = sql("meals.db");
+const db = sql("public/meals.db"); // ✅ New
+
 
 export async function getMeals() {
   await new Promise((resolve) => setTimeout(resolve, 2000));
