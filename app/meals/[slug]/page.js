@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function MealDetailsPage({ params }) {
-  const meal = await getMealDetails(params.slug);
+  const meal = await getMealDetails(params?.slug);
 
   if (!meal) {
     notFound();
