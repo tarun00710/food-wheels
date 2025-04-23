@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import MealsGrid from "../../components/meals/mealsGrid";
 import { getMeals } from "../../utils/meals";
