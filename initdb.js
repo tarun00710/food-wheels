@@ -1,5 +1,6 @@
 const sql = require('better-sqlite3');
-const db = sql('meals.db');
+const db = sql(process.env.NODE_ENV === "production" ? "/public/meals.db" : "meals.db");
+
 
 const dummyMeals = [
   {
