@@ -12,7 +12,7 @@ export async function getMeals() {
 }
 export async function getMealDetails(slug) {
   try {
-    //await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     const meal = db.prepare("SELECT * FROM meals WHERE slug = ? ").get(slug);
     if (!meal) {
       throw new Error(`Meal with slug ${slug} not found`);
